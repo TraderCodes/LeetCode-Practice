@@ -1,37 +1,4 @@
-// class Node {
-//   constructor(val) {
-//     this.val = val;
-//     this.next = null;
-//   }
-// }
-
-// initialize prev to null
-const reverseList = (head, prev = null) => {
-  if (head === null) return prev;
-  // todo
-  const next = head.next;
-  //   change head.next pointing to the previous
-  head.next = prev;
-  //   now the head.next is the previous(which used to be Null)
-  //   now the prv is ()a
-  //   so we pass in it the function to recheck again
-  return reverseList(next, head);
-  //   the head we pass in makes the (prev = the new head)
-};
-module.exports = {
-  reverseList,
-};
-//  time o(n)
-//  space o(n)
-
-// first set next = current.next so while changing current the next won't lose it's value
-// loop while current !== next
-
-//  null  <-  a   <- b    <-c    null
-//                 prev    head   next
-
-
-// Best solution
+// iterative;
 const reverseList = (head) => {
   let current = head;
   let prev = null;
@@ -46,4 +13,14 @@ const reverseList = (head) => {
 // n = number of nodes
 // Time: O(n)
 // Space: O(1)
-// recursive
+
+// recursive;
+const reverseList = (head, prev = null) => {
+  if (head === null) return prev;
+  const next = head.next;
+  head.next = prev;
+  return reverseList(next, head);
+};
+// n = number of nodes
+// Time: O(n)
+// Space: O(n)
