@@ -1,15 +1,16 @@
-max root to leaf path sum
-Write a function, maxPathSum, that takes in the root of a binary tree that contains number values. The function should return the maximum sum of any root to leaf path within the tree.
+Write a function, allTreePaths, that takes in the root of a binary tree. The function should return a 2-Dimensional array where each subarray represents a root-to-leaf path in the tree.
+
+The order within an individual path must start at the root and end at the leaf, but the relative order among paths in the outer array does not matter.
 
 You may assume that the input tree is non-empty.
 
 test_00:
-const a = new Node(3);
-const b = new Node(11);
-const c = new Node(4);
-const d = new Node(4);
-const e = new Node(-2);
-const f = new Node(1);
+const a = new Node('a');
+const b = new Node('b');
+const c = new Node('c');
+const d = new Node('d');
+const e = new Node('e');
+const f = new Node('f');
 
 a.left = b;
 a.right = c;
@@ -17,10 +18,15 @@ b.left = d;
 b.right = e;
 c.right = f;
 
-//       3
-//    /    \
-//   11     4
-//  / \      \
-// 4   -2     1
+//      a
+//    /   \
+//   b     c
+//  / \     \
+// d   e     f
 
-maxPathSum(a); // -> 18
+allTreePaths(a); // ->
+// [ 
+//   [ 'a', 'b', 'd' ], 
+//   [ 'a', 'b', 'e' ], 
+//   [ 'a', 'c', 'f' ] 
+// ] 
