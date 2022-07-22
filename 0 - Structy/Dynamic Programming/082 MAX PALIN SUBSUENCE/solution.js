@@ -1,24 +1,18 @@
-const maxPalinSubsequence = function (
-  str,
-  i = 0,
-  j = str.length - 1,
-  memo = {}
-) {
-  const key = i + ',' + j;
-  if (key in memo) return memo[key];
+const canConcat = (s, words, memo = {}) => {
+  if (s in memo) return memo[s];
 
-  if (i === j) return 1;
+  if (s.length === 0) return true;
 
-  if (i > j) return 0;
-
-  if (str[i] === str[j]) {
-    memo[key] = 2 + maxPalinSubsequence(str, i + 1, j - 1, memo);
-  } else {
-    memo[key] = Math.max(
-      maxPalinSubsequence(str, i + 1, j, memo),
-      maxPalinSubsequence(str, i, j - 1, memo)
-    );
+  for (let word of words) {
+    if (s.startsWith(word)) {
+      const suffix = s.slice(word.length);
+      if (canConcat(suffix, words, memo)) {
+        memo[s] = true;
+        return true;
+      }
+    }
   }
 
-  return memo[key];
+  memo[s] = false;
+  return false;
 };

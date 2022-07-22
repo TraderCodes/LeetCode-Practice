@@ -1,21 +1,18 @@
-max palin subsequence
-Write a function, maxPalinSubsequence, that takes in a string as an argument. The function should return the length of the longest subsequence of the string that is also a palindrome.
+Write a function, canConcat, that takes in a string and an array of words as arguments. The function should return boolean indicating whether or not it is possible to concatenate words of the array together to form the string.
 
-A subsequence of a string can be created by deleting any characters of the string, while maintaining the relative order of characters.
+You may reuse words of the array as many times as needed.
 
 test_00:
-maxPalinSubsequence("luwxult"); // -> 5
+canConcat("oneisnone", ["one", "none", "is"]); // -> true
 test_01:
-maxPalinSubsequence("xyzaxxzy"); // -> 6
+canConcat("oneisnone", ["on", "e", "is"]); // -> false
 test_02:
-maxPalinSubsequence("lol"); // -> 3
+canConcat("oneisnone", ["on", "e", "is", "n"]); // -> true
 test_03:
-maxPalinSubsequence("boabcdefop"); // -> 3
+canConcat("foodisgood", ["is", "g", "ood", "f"]); // -> true
 test_04:
-maxPalinSubsequence("z"); // -> 1
+canConcat("santahat", ["santah", "hat"]); // -> false
 test_05:
-maxPalinSubsequence("chartreusepugvicefree"); // -> 7
+canConcat("santahat", ["santah", "san", "hat", "tahat"]); // -> true
 test_06:
-maxPalinSubsequence("qwueoiuahsdjnweuueueunasdnmnqweuzqwerty"); // -> 15
-test_07:
-maxPalinSubsequence("enamelpinportlandtildecoldpressedironyflannelsemioticsedisonbulbfashionaxe"); // -> 31
+canConcat("rrrrrrrrrrrrrrrrrrrrrrrrrrx", ["r", "rr
