@@ -1,17 +1,23 @@
-const overlapSubsequence = (str1, str2, i = 0, j = 0, memo = {}) => {
-  const key = i + ',' + j;
-  if (key in memo) return memo[key];
+befitting brackets
+Write a function, befittingBrackets, that takes in a string as an argument. The function should return a boolean indicating whether or not the string contains correctly matched brackets.
 
-  if (i === str1.length || j === str2.length) return 0;
+You may assume the string contains only characters: ( ) [ ] { }
 
-  if (str1[i] === str2[j]) {
-    memo[key] = 1 + overlapSubsequence(str1, str2, i + 1, j + 1, memo);
-  } else {
-    memo[key] = Math.max(
-      overlapSubsequence(str1, str2, i + 1, j, memo),
-      overlapSubsequence(str1, str2, i, j + 1, memo)
-    );
-  }
-
-  return memo[key];
-};
+test_00:
+befittingBrackets('(){}[](())'); // -> true
+test_01:
+befittingBrackets('({[]})'); // -> true
+test_02:
+befittingBrackets('[][}'); // -> false
+test_03:
+befittingBrackets('{[]}({}'); // -> false
+test_04:
+befittingBrackets('[]{}(}[]'); // -> false
+test_05:
+befittingBrackets('[]{}()[]'); // -> true
+test_06:
+befittingBrackets(']{}'); // -> false
+test_07:
+befittingBrackets(''); // -> true
+test_08:
+befittingBrackets('{[(}])'); // -> false
