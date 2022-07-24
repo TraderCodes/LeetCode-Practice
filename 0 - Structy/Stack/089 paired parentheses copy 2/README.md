@@ -1,23 +1,24 @@
-paired parentheses
-Write a function, pairedParentheses, that takes in a string as an argument. The function should return a boolean indicating whether or not the string has well-formed parentheses.
+nesting score
+Write a function, nestingScore, that takes in a string of brackets as an argument. The function should return the score of the string according to the following rules:
 
-You may assume the string contains only alphabetic characters, '(', or ')'.
+[] is worth 1 point
+XY is worth m + n points where X, Y are substrings of well-formed brackets and m, n are their respective scores
+[S] is worth 2 * k points where S is a substring of well-formed brackets and k is the score of that substring
+You may assume that the input only contains well-formed square brackets.
 
 test_00:
-pairedParentheses("(david)((abby))"); // -> true
+nestingScore("[]"); // -> 1
 test_01:
-pairedParentheses("()rose(jeff"); // -> false
+nestingScore("[][][]"); // -> 3
 test_02:
-pairedParentheses(")("); // -> false
+nestingScore("[[]]"); // -> 2
 test_03:
-pairedParentheses("()"); // -> true
+nestingScore("[[][]]"); // -> 4
 test_04:
-pairedParentheses("(((potato())))"); // -> true
+nestingScore("[[][][]]"); // -> 6
 test_05:
-pairedParentheses("(())(water)()"); // -> true
+nestingScore("[[][]][]"); // -> 5
 test_06:
-pairedParentheses("(())(water()()"); // -> false
+nestingScore("[][[][]][[]]"); // -> 7
 test_07:
-pairedParentheses(""); // -> true
-test_08:
-pairedParentheses("))()"); // -> false
+nestingScore("[[[[[[[][]]]]]]][]"); // -> 129

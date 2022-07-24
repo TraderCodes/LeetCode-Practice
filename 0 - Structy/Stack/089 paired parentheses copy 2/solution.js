@@ -1,20 +1,22 @@
-const pairedParentheses = (str) => {
-  let count = 0;
-  
+solution
+using a stack
+const nestingScore = (str) => {
+  const stack = [0];
   for (let char of str) {
-    if (char === '(') {
-      count += 1;
-    } else if (char === ')') {
-      if (count === 0) {
-        return false;
+    if (char === '[') {
+      stack.push(0);
+    } else {
+      const popped = stack.pop();
+      if (popped === 0) {
+        stack[stack.length - 1] += 1;
+      } else {
+        stack[stack.length - 1] += 2 * popped;
       }
-      
-      count -= 1;
     }
   }
   
-  return count === 0;
+  return stack[0];
 };
 n = length of string
 Time: O(n)
-Space: O(1)
+Space: O(n)
